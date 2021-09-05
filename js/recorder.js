@@ -125,7 +125,7 @@ var Recorder = exports.Recorder = (function () {
                 }
                 var dataview = encodeWAV(interleaved);
                 var audioBlob = new Blob([dataview], { type: type });
-
+console.log(audioBlob);
                 self.postMessage({ command: 'exportWAV', data: audioBlob });
             }
 
