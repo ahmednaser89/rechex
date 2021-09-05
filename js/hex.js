@@ -67,7 +67,7 @@
 		  var arr = reader.result;
 		  uint8View = new Uint8Array(arr);
 		ThunkableWebviewerExtension.postMessage(uint8View);
-		
+		console.log(uint8View);
           Convert();          	  
         };
         reader.readAsArrayBuffer(file);    
