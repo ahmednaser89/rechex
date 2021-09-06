@@ -7,11 +7,11 @@
             h=hD.substr(d&15,1)+h;
         }
         return h;
-    }    
-    
+    }
+
 	var uint8View;
-	
-    function Convert() {	
+
+    function Convert() {
 			var hexText = "";
 			var separator1 = "", separator2 = "";
 			var newline = document.frmConvert.chbNewline.checked;
@@ -19,7 +19,7 @@
 			{
 			  separator1 = "0x";
 			  separator2 = ", "
-			}			
+			}
 			for (i=0; i<uint8View.length; i++) {
 			  var charVal = uint8View[i];
 			  hexText = hexText + separator1 + (charVal<16?"0":"") + dec2hex(charVal);
@@ -32,13 +32,13 @@
 					}
 				}
 			}
-			document.frmConvert.ed_output.value = hexText;		  	
+			document.frmConvert.ed_output.value = hexText;
     }
 
     function copyOutputToClipboard() {
         var target = document.frmConvert.ed_output;
         // https://stackoverflow.com/questions/51158061/copy-data-to-clipboard-without-selecting-any-text
-        // - restoring original selection doesn't seem to work        
+        // - restoring original selection doesn't seem to work
         var origSelectionStart, origSelectionEnd;
         origSelectionStart = target.selectionStart;
         origSelectionEnd = target.selectionEnd;
@@ -57,7 +57,7 @@
             currentFocus.focus();
         }
         // restore prior selection
-        target.setSelectionRange(origSelectionStart, origSelectionEnd);                        
+        target.setSelectionRange(origSelectionStart, origSelectionEnd);
     }
 
     function readFileAsArray(file) {
@@ -68,16 +68,16 @@
 		  uint8View = new Uint8Array(arr);
 		ThunkableWebviewerExtension.postMessage(uint8View);
 		console.log(uint8View);
-          Convert();          	  
+          Convert();
         };
-        reader.readAsArrayBuffer(file);    
-    }    
+        reader.readAsArrayBuffer(file);
+    }
 
     var openFile = function(event) {
         var input = event.target;
         readFileAsArray(input.files[0]);
     };
-      
+
     function drop_handler(ev) {
         ev.preventDefault();
         // If dropped items aren't files, reject them
@@ -117,7 +117,7 @@
             // Use DataTransfer interface to remove the drag data
             ev.dataTransfer.clearData();
         }
-    }                     
+    }
 
 
 
@@ -169,4 +169,6 @@ var ThunkableWebviewerExtension = (function () {
   };
 })();
 
+function dummy(){
 
+}
