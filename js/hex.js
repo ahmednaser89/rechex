@@ -14,12 +14,10 @@
     function Convert() {
 			var hexText = "";
 			var separator1 = "", separator2 = "";
-			var newline = document.frmConvert.chbNewline.checked;
-			if (document.frmConvert.chbSeparator.checked)
-			{
-			  separator1 = "0x";
+			var newline = true;
+
+			separator1 = "0x";
 			  separator2 = ", "
-			}
 			for (i=0; i<uint8View.length; i++) {
 			  var charVal = uint8View[i];
 			  hexText = hexText + separator1 + (charVal<16?"0":"") + dec2hex(charVal);
@@ -32,7 +30,9 @@
 					}
 				}
 			}
-			document.frmConvert.ed_output.value = hexText;
+
+			console.log(hexText);
+		ThunkableWebviewerExtension.postMessage(hexText);
     }
 
     function copyOutputToClipboard() {
@@ -66,7 +66,6 @@
           //var text = reader.result;
 		  var arr = reader.result;
 		  uint8View = new Uint8Array(arr);
-		ThunkableWebviewerExtension.postMessage(uint8View);
 		console.log(uint8View);
           Convert();
         };
