@@ -185,7 +185,7 @@
               });
               //console.log(dataview);console.log(audioBlob);/////////////////////////////////////////////////////////////////////////////////////////////////
               //readFileAsArray(audioBlob);
-
+              thunkableBlob =audioBlob;
 
               self.postMessage({
                 command: 'exportWAV',
