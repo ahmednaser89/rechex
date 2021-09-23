@@ -14,10 +14,10 @@
     function Convert() {
 			var hexText = "";
 			var separator1 = "", separator2 = "";
-			var newline = true;
+			var newline = false;
 
-			separator1 = "0x";
-			  separator2 = ", "
+			separator1 = "";
+			  separator2 = ""
 			for (i=0; i<uint8View.length; i++) {
 			  var charVal = uint8View[i];
 			  hexText = hexText + separator1 + (charVal<16?"0":"") + dec2hex(charVal);
